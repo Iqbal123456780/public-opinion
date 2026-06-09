@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Category News</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body { font-family: Arial; margin:0; background:#f4f6f8; }
+    header { background:#111827; color:white; text-align:center; padding:15px; }
+    .container { max-width:900px; margin:auto; padding:15px; }
+
+    .card {
+      background:white;
+      padding:15px;
+      margin:15px 0;
+      border-radius:8px;
+    }
+
+    a {
+      display:inline-block;
+      margin-top:10px;
+      padding:8px 12px;
+      background:#2563eb;
+      color:white;
+      text-decoration:none;
+      border-radius:5px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1 id="catTitle">Category News</h1>
+</header>
+
+<div class="container" id="news"></div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+const cat = params.get("cat");
+
+document.getElementById("catTitle").innerText = cat.toUpperCase() + " NEWS";
+
+document.getElementById("news").innerHTML = `
+  <div class="card">
+    <h3>${cat} Breaking News 1</h3>
+    <p>Latest updates in ${cat} category are developing.</p>
+    <a href="article.html?title=${cat} Breaking News 1">Read More</a>
+  </div>
+
+  <div class="card">
+    <h3>${cat} Update 2</h3>
+    <p>Important news in ${cat} sector today.</p>
+    <a href="article.html?title=${cat} Update 2">Read More</a>
+  </div>
+`;
+</script>
+
+</body>
+</html>
