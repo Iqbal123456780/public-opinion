@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>News Article</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body { font-family: Arial; margin:0; background:#f4f6f8; }
+.container { max-width:800px; margin:auto; background:white; padding:20px; }
+.ad { background:#ddd; padding:10px; margin:10px 0; text-align:center; }
+h1 { color:#111827; }
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="ad">AdSense Top Ad</div>
+
+<h1 id="title"></h1>
+
+<p id="content"></p>
+
+<div class="ad">AdSense Middle Ad</div>
+
+<p><a href="index.html">← Back to Home</a></p>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("title").innerText =
+params.get("title") || "Latest News";
+
+document.getElementById("content").innerText =
+"This is a developing news story. More updates will be added as information becomes available.";
+</script>
+
+</body>
+</html>
