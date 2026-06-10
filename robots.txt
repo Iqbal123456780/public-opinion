@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://iqbal123456780.github.io/public-opinion/sitemap.xml
