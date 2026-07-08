@@ -694,3 +694,790 @@ grid-template-columns:1fr;
 
 }
 
+
+
+/* ================= GLOBAL IMPROVEMENTS ================= */
+
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+}
+
+body{
+font-family:Arial, Helvetica, sans-serif;
+background:#f5f5f5;
+color:#222;
+line-height:1.6;
+}
+
+a{
+text-decoration:none;
+color:inherit;
+}
+
+img{
+max-width:100%;
+display:block;
+}
+
+
+/* ================= CONTAINER ================= */
+
+.container{
+max-width:1400px;
+margin:auto;
+padding:0 20px;
+}
+
+
+/* ================= BREAKING NEWS BAR ================= */
+
+.breaking-news{
+background:#d71920;
+color:white;
+padding:10px 0;
+font-weight:bold;
+overflow:hidden;
+}
+
+.breaking-container{
+display:flex;
+align-items:center;
+gap:15px;
+}
+
+.breaking-label{
+background:#111;
+padding:5px 15px;
+border-radius:4px;
+}
+
+.breaking-text{
+white-space:nowrap;
+}
+
+
+/* ================= CATEGORY GRID ================= */
+
+.category-section{
+max-width:1400px;
+margin:50px auto;
+padding:0 20px;
+}
+
+.category-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:25px;
+}
+
+
+.category-card{
+background:white;
+padding:25px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+
+.category-card:hover{
+transform:translateY(-5px);
+}
+
+
+.category-card h3{
+font-size:22px;
+margin-bottom:10px;
+}
+
+
+.category-card p{
+color:#666;
+font-size:15px;
+}
+
+
+/* ================= SOCIAL LINKS ================= */
+
+.social-links{
+display:flex;
+gap:12px;
+margin-top:20px;
+}
+
+.social-links a{
+width:40px;
+height:40px;
+display:flex;
+align-items:center;
+justify-content:center;
+background:#333;
+color:white;
+border-radius:50%;
+transition:.3s;
+}
+
+.social-links a:hover{
+background:#d71920;
+}
+
+
+/* ================= SCROLL TO TOP ================= */
+
+#topBtn{
+position:fixed;
+bottom:25px;
+right:25px;
+width:45px;
+height:45px;
+background:#d71920;
+color:white;
+border:none;
+border-radius:50%;
+font-size:20px;
+cursor:pointer;
+display:none;
+z-index:999;
+}
+
+
+/* ================= TABLE STYLE ================= */
+
+table{
+width:100%;
+border-collapse:collapse;
+background:white;
+margin:25px 0;
+}
+
+table th{
+background:#111;
+color:white;
+padding:12px;
+text-align:left;
+}
+
+table td{
+padding:12px;
+border-bottom:1px solid #ddd;
+}
+
+
+/* ================= LOADING EFFECT ================= */
+
+.fade-in{
+animation:fadeIn .8s ease-in-out;
+}
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(20px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+   /* ================= HOMEPAGE NEWS SECTION ================= */
+
+.latest-news{
+max-width:1400px;
+margin:50px auto;
+padding:0 20px;
+}
+
+
+.news-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:25px;
+}
+
+
+.news-item{
+background:#fff;
+border-radius:12px;
+overflow:hidden;
+box-shadow:0 5px 20px rgba(0,0,0,.08);
+transition:.3s;
+}
+
+
+.news-item:hover{
+transform:translateY(-6px);
+}
+
+
+.news-item img{
+width:100%;
+height:220px;
+object-fit:cover;
+}
+
+
+.news-info{
+padding:20px;
+}
+
+
+.news-info .date{
+font-size:13px;
+color:#888;
+margin-bottom:8px;
+}
+
+
+.news-info h3{
+font-size:22px;
+line-height:1.4;
+margin-bottom:12px;
+}
+
+
+.news-info p{
+font-size:15px;
+color:#666;
+}
+
+
+/* ================= TRENDING NEWS ================= */
+
+.trending-box{
+background:#fff;
+padding:25px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+
+.trending-box h2{
+font-size:24px;
+border-bottom:3px solid #d71920;
+padding-bottom:10px;
+margin-bottom:20px;
+}
+
+
+.trending-list li{
+list-style:none;
+padding:15px 0;
+border-bottom:1px solid #eee;
+}
+
+
+.trending-list li a{
+font-weight:600;
+}
+
+
+.trending-list li a:hover{
+color:#d71920;
+}
+
+
+/* ================= AUTHOR BOX ================= */
+
+.author-box{
+display:flex;
+align-items:center;
+gap:15px;
+background:#f8f8f8;
+padding:20px;
+margin:35px 0;
+border-radius:10px;
+}
+
+
+.author-avatar{
+width:60px;
+height:60px;
+border-radius:50%;
+background:#d71920;
+color:white;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:25px;
+font-weight:bold;
+}
+
+
+.author-info h4{
+margin-bottom:5px;
+}
+
+
+/* ================= RELATED ARTICLES ================= */
+
+.related{
+margin-top:40px;
+}
+
+
+.related h2{
+font-size:28px;
+margin-bottom:20px;
+}
+
+
+.related-grid{
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+}
+
+
+.related-card{
+background:white;
+padding:20px;
+border-radius:10px;
+box-shadow:0 3px 12px rgba(0,0,0,.08);
+}
+
+
+.related-card:hover{
+border-bottom:4px solid #d71920;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media(max-width:1000px){
+
+.news-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+.related-grid{
+grid-template-columns:repeat(2,1fr);
+}
+
+}
+
+
+@media(max-width:600px){
+
+.news-grid,
+.related-grid{
+grid-template-columns:1fr;
+}
+
+.news-item img{
+height:200px;
+}
+
+   }
+
+/* ================= ADSENSE READY AD AREAS ================= */
+
+.ads-container{
+max-width:1200px;
+margin:40px auto;
+padding:0 20px;
+}
+
+.ads-area{
+background:#fff;
+min-height:120px;
+display:flex;
+align-items:center;
+justify-content:center;
+border:1px solid #eee;
+border-radius:8px;
+color:#999;
+font-size:14px;
+}
+
+
+/* ================= CONTACT / POLICY PAGES ================= */
+
+.page-container{
+max-width:1000px;
+margin:50px auto;
+background:#fff;
+padding:40px;
+border-radius:10px;
+box-shadow:0 4px 18px rgba(0,0,0,.08);
+}
+
+
+.page-container h1{
+font-size:38px;
+margin-bottom:25px;
+color:#222;
+}
+
+
+.page-container h2{
+font-size:26px;
+margin:30px 0 15px;
+color:#d71920;
+}
+
+
+.page-container p{
+font-size:17px;
+line-height:1.8;
+color:#444;
+margin-bottom:18px;
+}
+
+
+/* ================= COMMENTS SECTION ================= */
+
+.comments-section{
+margin-top:50px;
+background:#fff;
+padding:30px;
+border-radius:10px;
+}
+
+
+.comments-section h2{
+margin-bottom:20px;
+}
+
+
+.comment-box input,
+.comment-box textarea{
+width:100%;
+padding:12px;
+margin-bottom:15px;
+border:1px solid #ddd;
+border-radius:5px;
+font-size:15px;
+}
+
+
+.comment-box textarea{
+height:130px;
+resize:none;
+}
+
+
+.comment-box button{
+background:#d71920;
+color:white;
+border:none;
+padding:12px 25px;
+border-radius:5px;
+font-weight:bold;
+cursor:pointer;
+}
+
+
+/* ================= NEWSLETTER ================= */
+
+.newsletter{
+background:#111;
+color:white;
+padding:50px 20px;
+text-align:center;
+margin-top:50px;
+}
+
+
+.newsletter h2{
+font-size:32px;
+margin-bottom:15px;
+}
+
+
+.newsletter p{
+color:#ddd;
+margin-bottom:25px;
+}
+
+
+.newsletter-form{
+display:flex;
+max-width:500px;
+margin:auto;
+}
+
+
+.newsletter-form input{
+flex:1;
+padding:14px;
+border:none;
+}
+
+
+.newsletter-form button{
+background:#d71920;
+color:white;
+border:none;
+padding:14px 25px;
+cursor:pointer;
+}
+
+
+/* ================= FINAL MOBILE FIX ================= */
+
+@media(max-width:600px){
+
+.page-container{
+margin:20px;
+padding:25px;
+}
+
+
+.page-container h1{
+font-size:30px;
+}
+
+
+.newsletter-form{
+flex-direction:column;
+gap:10px;
+}
+
+
+.newsletter-form button{
+width:100%;
+}
+
+}
+
+/* ================= SEO ARTICLE ENHANCEMENTS ================= */
+
+.article-header{
+text-align:center;
+margin-bottom:35px;
+}
+
+
+.article-header .category{
+margin-bottom:15px;
+}
+
+
+.article-header h1{
+font-size:42px;
+font-weight:800;
+}
+
+
+.article-summary{
+font-size:20px;
+color:#555;
+margin:20px auto;
+max-width:800px;
+}
+
+
+.read-time{
+font-size:14px;
+color:#777;
+}
+
+
+/* ================= SHARE BUTTONS ================= */
+
+.share-buttons{
+display:flex;
+gap:10px;
+margin:25px 0;
+}
+
+
+.share-buttons a{
+padding:10px 15px;
+border-radius:5px;
+background:#333;
+color:white;
+font-size:14px;
+}
+
+
+.share-buttons a:hover{
+background:#d71920;
+}
+
+
+/* ================= SEARCH RESULTS ================= */
+
+.search-results{
+max-width:1000px;
+margin:40px auto;
+}
+
+
+.search-result{
+background:#fff;
+padding:25px;
+margin-bottom:20px;
+border-radius:10px;
+box-shadow:0 4px 15px rgba(0,0,0,.08);
+}
+
+
+.search-result h2{
+margin-bottom:10px;
+}
+
+
+.search-result p{
+color:#666;
+}
+
+
+/* ================= 404 ERROR PAGE ================= */
+
+.error-page{
+min-height:500px;
+display:flex;
+align-items:center;
+justify-content:center;
+text-align:center;
+}
+
+
+.error-page h1{
+font-size:120px;
+color:#d71920;
+}
+
+
+.error-page p{
+font-size:22px;
+margin-bottom:25px;
+}
+
+
+/* ================= PRINT OPTIMIZATION ================= */
+
+@media print{
+
+.header,
+.footer,
+.sidebar,
+.ads-container,
+.share-buttons{
+display:none;
+}
+
+
+.article-container{
+box-shadow:none;
+}
+
+}
+
+
+/* ================= EXTRA SMALL DEVICES ================= */
+
+@media(max-width:400px){
+
+.logo{
+font-size:24
+
+
+/* ================= PREMIUM NEWS PORTAL FINISHING ================= */
+
+
+/* Smooth scrolling */
+
+html{
+scroll-behavior:smooth;
+}
+
+
+/* Selection Style */
+
+::selection{
+background:#d71920;
+color:#fff;
+}
+
+
+/* Image Hover Effect */
+
+.news-card img,
+.news-item img,
+.feature-card img{
+transition:.4s ease;
+}
+
+
+.news-card:hover img,
+.news-item:hover img,
+.feature-card:hover img{
+transform:scale(1.05);
+}
+
+
+/* ================= TOP HEADER INFO BAR ================= */
+
+.top-bar{
+background:#d71920;
+color:white;
+font-size:14px;
+padding:8px 0;
+}
+
+
+.top-bar-container{
+max-width:1400px;
+margin:auto;
+padding:0 20px;
+display:flex;
+justify-content:space-between;
+}
+
+
+/* ================= LOGO IMAGE ================= */
+
+.logo img{
+height:55px;
+width:auto;
+}
+
+
+/* ================= NAV ACTIVE LINK ================= */
+
+.navbar ul li a.active{
+color:#d71920;
+}
+
+
+/* ================= BACK TO TOP BUTTON ================= */
+
+#backToTop{
+position:fixed;
+right:25px;
+bottom:25px;
+width:45px;
+height:45px;
+background:#d71920;
+color:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:22px;
+cursor:pointer;
+box-shadow:0 5px 15px rgba(0,0,0,.2);
+}
+
+
+/* ================= LOADING BAR ================= */
+
+.progress-bar{
+position:fixed;
+top:0;
+left:0;
+height:3px;
+background:#d71920
+
+
+
+
+
