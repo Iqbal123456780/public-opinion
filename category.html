@@ -2,171 +2,497 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>Category News | Public Opinion News</title>
+<title>Latest Category News | Public Opinion News</title>
 
-  <meta name="description"
-        content="Explore the latest news and updates by category from Public Opinion News.">
+<meta name="description" content="Explore Pakistan and world news, politics, business, economy, technology and sports articles from Public Opinion News.">
+<meta name="author" content="Public Opinion News">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#d71920">
 
-  <style>
-    * {
-      box-sizing: border-box;
-    }
+<link id="canonicalLink" rel="canonical" href="https://iqbal123456780.github.io/public-opinion/category.html">
 
-    body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      background: #f4f6f8;
-      color: #111827;
-    }
+<meta property="og:site_name" content="Public Opinion News">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Category News | Public Opinion News">
+<meta property="og:description" content="Explore news and analysis from Public Opinion News.">
+<meta property="og:url" content="https://iqbal123456780.github.io/public-opinion/category.html">
 
-    header {
-      background: #111827;
-      color: white;
-      text-align: center;
-      padding: 20px 15px;
-    }
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
 
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f4f4f4;
+    color: #222;
+    line-height: 1.7;
+}
+
+header {
+    background: #111;
+    color: white;
+    padding: 22px 15px;
+    text-align: center;
+}
+
+header h1 {
+    font-size: 30px;
+    margin-bottom: 5px;
+}
+
+header p {
+    color: #ddd;
+    font-size: 14px;
+}
+
+nav {
+    margin-top: 15px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    display: inline-block;
+    margin: 5px 10px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+nav a:hover {
+    color: #ff7777;
+}
+
+.container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 0 18px;
+}
+
+.page-heading {
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-bottom: 25px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+}
+
+.page-heading h2 {
+    font-size: 30px;
+    color: #111;
+    margin-bottom: 8px;
+}
+
+.page-heading p {
+    color: #666;
+}
+
+.news-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.news-card {
+    background: white;
+    padding: 23px;
+    border-radius: 8px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+    display: flex;
+    flex-direction: column;
+}
+
+.news-card h3 {
+    font-size: 21px;
+    line-height: 1.4;
+    margin-bottom: 10px;
+    color: #111;
+}
+
+.news-card p {
+    color: #666;
+    margin-bottom: 17px;
+    flex-grow: 1;
+}
+
+.category-label {
+    color: #d71920;
+    text-transform: uppercase;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: 1px;
+    margin-bottom: 8px;
+}
+
+.read-link {
+    display: inline-block;
+    align-self: flex-start;
+    background: #d71920;
+    color: white;
+    padding: 10px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.read-link:hover {
+    background: #111;
+}
+
+.back-link {
+    display: inline-block;
+    margin-top: 28px;
+    padding: 11px 17px;
+    background: #111;
+    color: white;
+    border-radius: 5px;
+    text-decoration: none;
+}
+
+.back-link:hover {
+    background: #d71920;
+}
+
+.empty-message {
+    display: none;
+    background: white;
+    padding: 25px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+footer {
+    background: #111;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    margin-top: 45px;
+}
+
+footer p {
+    margin: 7px 0;
+    color: #ddd;
+    font-size: 14px;
+}
+
+footer a {
+    color: white;
+}
+
+@media (max-width: 650px) {
     header h1 {
-      margin: 0;
-      font-size: 26px;
+        font-size: 25px;
     }
 
     .container {
-      max-width: 900px;
-      margin: auto;
-      padding: 15px;
+        margin-top: 18px;
+        padding: 0 12px;
     }
 
-    .card {
-      background: white;
-      padding: 20px;
-      margin: 15px 0;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+    .page-heading {
+        padding: 20px;
     }
 
-    .card h3 {
-      margin-top: 0;
-      color: #111827;
+    .page-heading h2 {
+        font-size: 25px;
     }
 
-    .card p {
-      line-height: 1.6;
-      color: #4b5563;
+    .news-grid {
+        grid-template-columns: 1fr;
     }
 
-    a {
-      display: inline-block;
-      margin-top: 10px;
-      padding: 10px 14px;
-      background: #d71920;
-      color: white;
-      text-decoration: none;
-      border-radius: 5px;
+    .news-card {
+        padding: 20px;
     }
 
-    a:hover {
-      background: #b9151b;
+    .news-card h3 {
+        font-size: 19px;
     }
-
-    .back-link {
-      background: #111827;
-      margin-bottom: 20px;
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
 <header>
-  <h1 id="catTitle">Category News</h1>
+    <h1>Public Opinion News</h1>
+    <p>AI Auto News System - Pakistan &amp; World</p>
+
+    <nav aria-label="Main navigation">
+        <a href="index.html">Home</a>
+        <a href="category.html?cat=politics">Politics</a>
+        <a href="category.html?cat=world">World</a>
+        <a href="category.html?cat=business">Business</a>
+        <a href="category.html?cat=sports">Sports</a>
+        <a href="about.html">About</a>
+        <a href="contact.html">Contact</a>
+    </nav>
 </header>
 
 <main class="container">
 
-  <a class="back-link" href="index.html">
-    ← Back to Homepage
-  </a>
+    <section class="page-heading">
+        <h2 id="categoryTitle">Latest News</h2>
+        <p id="categoryDescription">
+            Explore news, information and analysis from Public Opinion News.
+        </p>
+    </section>
 
-  <div id="news"></div>
+    <section class="news-grid" id="newsGrid" aria-label="Published articles">
+
+        <!-- POLITICS -->
+
+        <article class="news-card" data-category="politics">
+            <span class="category-label">Politics</span>
+            <h3>Political Situation in Pakistan</h3>
+            <p>An overview of political developments, leadership challenges and issues shaping Pakistan.</p>
+            <a class="read-link" href="political-situation-pakistan.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="politics">
+            <span class="category-label">Politics</span>
+            <h3>Civil-Military Relations in Pakistan</h3>
+            <p>Explore the relationship between civilian institutions and the military in Pakistan.</p>
+            <a class="read-link" href="civil-military-relations-pakistan.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="politics">
+            <span class="category-label">Politics</span>
+            <h3>Future of Democracy in Pakistan</h3>
+            <p>Read about democratic institutions, governance and the challenges facing democracy.</p>
+            <a class="read-link" href="future-of-democracy-pakistan.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="politics">
+            <span class="category-label">Politics</span>
+            <h3>Pakistan Election Trends</h3>
+            <p>An overview of electoral trends and political participation in Pakistan.</p>
+            <a class="read-link" href="pakistan-election-trends.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="politics">
+            <span class="category-label">Politics</span>
+            <h3>Gilgit-Baltistan Election Results 2026</h3>
+            <p>Read the article covering the Gilgit-Baltistan election and its political context.</p>
+            <a class="read-link" href="gilgit-baltistan-election-results-2026.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="politics">
+            <span class="category-label">Politics</span>
+            <h3>Regional Politics in South Asia</h3>
+            <p>Explore political developments and regional relations across South Asia.</p>
+            <a class="read-link" href="regional-politics-south-asia.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="politics">
+            <span class="category-label">Global Politics</span>
+            <h3>US-Iran Agreement: What Was Agreed?</h3>
+            <p>A review of the reported agreement, diplomacy and unresolved regional issues.</p>
+            <a class="read-link" href="trump-iran-deal.html">Read Full Article</a>
+        </article>
+
+        <!-- WORLD -->
+
+        <article class="news-card" data-category="world">
+            <span class="category-label">World</span>
+            <h3>Global Economic Trends 2026</h3>
+            <p>Explore major international economic trends and their potential effects on global markets.</p>
+            <a class="read-link" href="global-economic-trends.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="world">
+            <span class="category-label">World</span>
+            <h3>Regional Politics in South Asia</h3>
+            <p>Understand regional political developments and relations between South Asian countries.</p>
+            <a class="read-link" href="regional-politics-south-asia.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="world">
+            <span class="category-label">World</span>
+            <h3>US-Iran Agreement: What Was Agreed?</h3>
+            <p>Understand the reported diplomatic framework and the issues that remained unresolved.</p>
+            <a class="read-link" href="trump-iran-deal.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="world">
+            <span class="category-label">Technology</span>
+            <h3>The Future of Artificial Intelligence</h3>
+            <p>Explore the impact of artificial intelligence on technology and everyday life.</p>
+            <a class="read-link" href="artificial-intelligence-future.html">Read Full Article</a>
+        </article>
+
+        <!-- BUSINESS -->
+
+        <article class="news-card" data-category="business">
+            <span class="category-label">Economy</span>
+            <h3>Pakistan Economy Outlook 2026</h3>
+            <p>Explore economic trends, investment topics and challenges facing Pakistan.</p>
+            <a class="read-link" href="pakistan-economy-outlook-2026.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="business">
+            <span class="category-label">Economy</span>
+            <h3>Impact of Inflation on Pakistani Families</h3>
+            <p>Understand how inflation affects household budgets and everyday spending.</p>
+            <a class="read-link" href="inflation-impact-pakistan.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="business">
+            <span class="category-label">Business</span>
+            <h3>Pakistan Stock Market Analysis</h3>
+            <p>Explore an overview of Pakistan's stock market and its economic context.</p>
+            <a class="read-link" href="pakistan-stock-market-analysis.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="business">
+            <span class="category-label">Business</span>
+            <h3>Small Business Growth in Pakistan</h3>
+            <p>Read about opportunities and challenges for small businesses in Pakistan.</p>
+            <a class="read-link" href="small-business-growth-pakistan.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="business">
+            <span class="category-label">Technology &amp; Business</span>
+            <h3>Digital Economy of Pakistan</h3>
+            <p>Explore digital transformation, technology and the changing economy.</p>
+            <a class="read-link" href="digital-economy-pakistan.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="business">
+            <span class="category-label">World Economy</span>
+            <h3>Global Economic Trends 2026</h3>
+            <p>Explore international economic developments and their wider implications.</p>
+            <a class="read-link" href="global-economic-trends.html">Read Full Article</a>
+        </article>
+
+        <!-- SPORTS -->
+
+        <article class="news-card" data-category="sports">
+            <span class="category-label">Sports</span>
+            <h3>Pakistan Cricket Future</h3>
+            <p>Explore Pakistan cricket, emerging talent and the challenges facing the sport.</p>
+            <a class="read-link" href="pakistan-cricket-future.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="sports">
+            <span class="category-label">Sports</span>
+            <h3>Major Sports Events 2026</h3>
+            <p>Read an overview of major sporting events scheduled during 2026.</p>
+            <a class="read-link" href="major-sports-events-2026.html">Read Full Article</a>
+        </article>
+
+        <article class="news-card" data-category="sports">
+            <span class="category-label">Sports</span>
+            <h3>Youth Sports Development in Pakistan</h3>
+            <p>Explore grassroots sports, coaching and opportunities for young athletes.</p>
+            <a class="read-link" href="youth-sports-development.html">Read Full Article</a>
+        </article>
+
+    </section>
+
+    <p class="empty-message" id="emptyMessage">
+        No articles are currently listed in this category. Please explore our other sections.
+    </p>
+
+    <a class="back-link" href="index.html">&larr; Back to Homepage</a>
 
 </main>
+
+<footer>
+    <p>Public Opinion News - Your Voice. Your News.</p>
+    <p>
+        <a href="about.html">About</a> |
+        <a href="privacy.html">Privacy Policy</a> |
+        <a href="terms.html">Terms</a> |
+        <a href="disclaimer.html">Disclaimer</a> |
+        <a href="contact.html">Contact</a>
+    </p>
+    <p>
+        <a href="https://www.facebook.com/publicopinion1212" target="_blank" rel="noopener noreferrer">Facebook</a>
+        |
+        <a href="https://www.instagram.com/publicopinion1212" target="_blank" rel="noopener noreferrer">Instagram</a>
+    </p>
+    <p>&copy; 2026 Public Opinion News. All Rights Reserved.</p>
+</footer>
 
 <script>
 "use strict";
 
-// Read the category from the URL.
-const params = new URLSearchParams(window.location.search);
-const requestedCategory = params.get("cat");
-
-// Only allow known categories.
-const allowedCategories = {
-  politics: "Politics",
-  world: "World",
-  business: "Business",
-  sports: "Sports"
+const categories = {
+    politics: {
+        title: "Politics News",
+        description: "Explore political developments, governance, elections and regional affairs."
+    },
+    world: {
+        title: "World News",
+        description: "Explore international developments, global affairs and world economic issues."
+    },
+    business: {
+        title: "Business & Economy News",
+        description: "Read about Pakistan's economy, business, markets and digital transformation."
+    },
+    sports: {
+        title: "Sports News",
+        description: "Explore cricket, major sporting events and youth sports development."
+    }
 };
 
-// Validate the requested category.
-const categoryKey = (requestedCategory || "").toLowerCase();
+const params = new URLSearchParams(window.location.search);
+const categoryKey = (params.get("cat") || "").toLowerCase();
+const selectedCategory = categories[categoryKey];
 
-const categoryName =
-  allowedCategories[categoryKey] || "Latest";
+const titleElement = document.getElementById("categoryTitle");
+const descriptionElement = document.getElementById("categoryDescription");
+const canonicalElement = document.getElementById("canonicalLink");
+const cards = document.querySelectorAll(".news-card");
+const emptyMessage = document.getElementById("emptyMessage");
 
-// Update the page title safely.
-document.getElementById("catTitle").textContent =
-  categoryName + " News";
+let visibleCount = 0;
 
-// Get the news container.
-const newsContainer = document.getElementById("news");
+if (selectedCategory) {
+    titleElement.textContent = selectedCategory.title;
+    descriptionElement.textContent = selectedCategory.description;
 
-// Create news cards using safe DOM methods.
-function createNewsCard(title, description) {
+    document.title = selectedCategory.title + " | Public Opinion News";
 
-  const card = document.createElement("div");
-  card.className = "card";
+    document.querySelector('meta[name="description"]').setAttribute(
+        "content",
+        selectedCategory.description
+    );
 
-  const heading = document.createElement("h3");
-  heading.textContent = title;
+    canonicalElement.href =
+        "https://iqbal123456780.github.io/public-opinion/category.html?cat=" +
+        encodeURIComponent(categoryKey);
+} else {
+    titleElement.textContent = "Latest News";
+    descriptionElement.textContent =
+        "Explore the latest published articles from Public Opinion News.";
 
-  const paragraph = document.createElement("p");
-  paragraph.textContent = description;
+    document.title = "Latest News | Public Opinion News";
 
-  const link = document.createElement("a");
-
-  const articleParams = new URLSearchParams();
-  articleParams.set("title", title);
-
-  link.href = "article.html?" + articleParams.toString();
-  link.textContent = "Read More";
-
-  card.appendChild(heading);
-  card.appendChild(paragraph);
-  card.appendChild(link);
-
-  return card;
+    canonicalElement.href =
+        "https://iqbal123456780.github.io/public-opinion/category.html";
 }
 
-// Display category news.
-newsContainer.appendChild(
-  createNewsCard(
-    categoryName + " Breaking News 1",
-    "Latest updates in " + categoryName +
-    " are developing. Stay connected with Public Opinion News."
-  )
-);
+cards.forEach(function(card) {
+    const matches =
+        !selectedCategory || card.dataset.category === categoryKey;
 
-newsContainer.appendChild(
-  createNewsCard(
-    categoryName + " Update 2",
-    "Important news and developments in the " +
-    categoryName + " category."
-  )
-);
+    card.hidden = !matches;
 
+    if (matches) {
+        visibleCount++;
+    }
+});
+
+if (visibleCount === 0) {
+    emptyMessage.style.display = "block";
+}
 </script>
 
 </body>
