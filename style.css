@@ -1169,11 +1169,30 @@ table td{
 
 /* Keep homepage story thumbnails consistent and visible */
 .news-card > img:not([src*="logo.png"]){
+    display:block;
     width:100%;
     height:190px;
     object-fit:cover;
     border-radius:8px;
     margin:0 0 14px;
+}
+
+/* Keep the lead-story image proportional instead of letting it dominate */
+.hero-card > img:not([src*="logo.png"]){
+    display:block;
+    width:100%;
+    height:240px;
+    max-height:240px;
+    object-fit:cover;
+    border-radius:8px;
+    margin:0 0 14px;
+}
+
+@media(max-width:768px){
+    .hero-card > img:not([src*="logo.png"]){
+        height:200px;
+        max-height:200px;
+    }
 }
 
 .news-card img{
