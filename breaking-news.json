@@ -1,11 +1,24 @@
 {
-  "updated_at": "2026-11-18T09:01:48.311081Z",
+  "updated_at": "2026-11-18T10:26:12Z",
   "items": [
+    {
+      "title": "Amnesty International raises concerns over Imran Khan and Bushra Bibi's access to medical care",
+      "url": "https://www.babushahi.com/view-news.php?id=230003",
+      "source": "ANI (reported by Babushahi)",
+      "published": "2026-11-18T09:32:00Z",
+      "label": "Latest update"
+    },
     {
       "title": "'He who claims equity must come with clean hands': Asif hits back at Bilawal",
       "url": "https://www.dawn.com/news/2045397/he-who-claims-equity-must-come-with-clean-hands-asif-hits-back-at-bilawal",
       "source": "Dawn",
       "published": "2026-11-18T08:54:52Z"
+    },
+    {
+      "title": "Bilawal Bhutto calls Imran Khan a political stakeholder and urges an end to political victimisation",
+      "url": "https://www.indiatoday.in/world/story/bilawal-bhutto-imran-khan-political-prisoner-shehbaz-sharif-govt-ppp-asim-munir-pakistan-itspc-3041302-2026-11-18",
+      "source": "India Today",
+      "published": "2026-11-18T08:42:00Z"
     },
     {
       "title": "Pakistan, Turkiye discuss expanding defence cooperation in electronic warfare, drone and aerospace technologies",
@@ -109,18 +122,6 @@
       "url": "https://www.nation.com.pk/18-Nov-2026/cm-maryam-meets-pa-speaker-amid-rumour-mill",
       "source": "The Nation",
       "published": "2026-11-17T20:58:00Z"
-    },
-    {
-      "title": "Former KP ministers Jhagra, Bangash among 3 PTI leaders held under MPO despite bail from PHC",
-      "url": "https://www.dawn.com/news/2045217/former-kp-ministers-jhagra-bangash-among-3-pti-leaders-held-under-mpo-despite-bail-from-phc",
-      "source": "Dawn",
-      "published": "2026-11-17T20:35:24Z"
-    },
-    {
-      "title": "Bilawal stirs political storm with no-holds-barred speech",
-      "url": "https://tribune.com.pk/story/2640911/bilawal-stirs-political-storm-with-no-holds-barred-speech",
-      "source": "The Express Tribune",
-      "published": "2026-11-17T19:21:47Z"
     }
   ],
   "sources": [
@@ -128,7 +129,9 @@
     "The Express Tribune",
     "The News International",
     "The Nation",
-    "Pakistan Today"
+    "Pakistan Today",
+    "ANI (reported by Babushahi)",
+    "India Today"
   ],
   "note": "Headlines link to original publishers. Claims attributed to a person or organisation are not independently verified by Public Opinion News."
 }
