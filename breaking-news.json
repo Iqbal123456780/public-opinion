@@ -1,11 +1,27 @@
 {
-  "updated_at": null,
-  "items": [],
+  "updated_at": "2026-11-18T01:34:00Z",
+  "items": [
+    {
+      "title": "Eight Pakistan Bar Council members urge action on Imran Khan’s hospital transfer",
+      "url": "https://www.pakistantoday.com.pk/2026/11/18/eight-pbc-members-press-judiciary-to-enforce-sc-order-on-imrans-hospital-transfer",
+      "source": "Pakistan Today",
+      "published": "2026-11-18T00:00:00Z",
+      "label": "Latest development"
+    },
+    {
+      "title": "Imran Khan writes open letter to top judges seeking medical treatment for himself and Bushra Bibi",
+      "url": "https://www.dawn.com/news/2044922/i-may-not-return-alive-in-open-letter-to-top-judges-imran-pleads-for-medical-treatment-for-him-and-bushra-bibi",
+      "source": "Dawn",
+      "published": "2026-11-16T14:15:00Z",
+      "label": "Background report"
+    }
+  ],
   "sources": [
     "Dawn",
     "The Express Tribune",
     "The News International",
-    "The Nation"
+    "The Nation",
+    "Pakistan Today"
   ],
-  "note": "Headlines are reproduced as source titles and link to the original publisher. Public Opinion News does not independently verify each headline."
+  "note": "Headlines link to original publishers. Claims attributed to a person or organisation are not independently verified by Public Opinion News."
 }
