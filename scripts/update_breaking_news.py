@@ -116,8 +116,30 @@ def main():
         key = item["url"].split("#", 1)[0].rstrip("/")
         unique.setdefault(key, item)
 
+    # Keep sourced Imran Khan reports visible when feeds are quiet or unavailable.
+    pinned = [
+        {
+            "title": "Eight Pakistan Bar Council members urge action on Imran Khan's hospital transfer",
+            "url": "https://www.pakistantoday.com.pk/2026/11/18/eight-pbc-members-press-judiciary-to-enforce-sc-order-on-imrans-hospital-transfer",
+            "source": "Pakistan Today",
+            "published": "2026-11-18T00:00:00Z",
+            "label": "Latest development",
+        },
+        {
+            "title": "Imran Khan writes open letter to top judges seeking medical treatment for himself and Bushra Bibi",
+            "url": "https://www.dawn.com/news/2044922/i-may-not-return-alive-in-open-letter-to-top-judges-imran-pleads-for-medical-treatment-for-him-and-bushra-bibi",
+            "source": "Dawn",
+            "published": "2026-11-16T14:15:00Z",
+            "label": "Background report",
+        },
+    ]
+    combined = pinned + list(unique.values())
+    deduplicated = {}
+    for item in combined:
+        deduplicated.setdefault(item["url"].split("#", 1)[0].rstrip("/"), item)
+
     items = sorted(
-        unique.values(),
+        deduplicated.values(),
         key=lambda item: item["published"],
         reverse=True,
     )[:20]
@@ -125,8 +147,8 @@ def main():
     payload = {
         "updated_at": NOW.isoformat().replace("+00:00", "Z"),
         "items": items,
-        "sources": [source for source, _ in FEEDS],
-        "note": "Headlines are reproduced as source titles and link to the original publisher. Public Opinion News does not independently verify each headline.",
+        "sources": [source for source, _ in FEEDS] + ["Pakistan Today"],
+        "note": "Headlines link to original publishers. Claims attributed to a person or organisation are not independently verified by Public Opinion News.",
     }
     OUT.write_text(json.dumps(payload, ensure_ascii=False, indent=2) + "\n", encoding="utf-8")
     print(f"Wrote {len(items)} source-linked political headlines.")
