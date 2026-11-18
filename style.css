@@ -1526,3 +1526,34 @@ table td{
     }
 }
 
+/* Make the header logo watermark clearly visible behind the masthead text */
+.header .logo{
+    position:relative;
+    isolation:isolate;
+    background:none !important;
+    padding:14px 20px;
+}
+.header .logo::before{
+    content:"";
+    position:absolute;
+    inset:0;
+    z-index:-1;
+    background-image:url("logo.png");
+    background-repeat:no-repeat;
+    background-position:left center;
+    background-size:contain;
+    opacity:.38;
+    pointer-events:none;
+}
+.header .logo span,
+.header .logo p{
+    position:relative;
+    z-index:1;
+}
+@media(max-width:768px){
+    .header .logo::before{
+        background-position:center;
+        opacity:.32;
+    }
+}
+
