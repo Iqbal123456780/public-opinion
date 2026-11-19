@@ -226,19 +226,7 @@ ul{
 
     margin:30px auto;
 
-    background:
-
-    linear-gradient(
-    rgba(0,0,0,.65),
-    rgba(0,0,0,.65)
-    ),
-
-    url("logo.png");
-
-
-    background-size:cover;
-
-    background-position:center;
+    background:linear-gradient(135deg,#111111 0%,#292929 65%,#7d1117 100%);
 
     min-height:450px;
 
