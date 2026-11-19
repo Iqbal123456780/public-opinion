@@ -223,23 +223,14 @@ ul{
 
 
 .hero{
-
-    margin:30px auto;
-
+    margin:16px auto 12px;
     background:linear-gradient(135deg,#111111 0%,#292929 65%,#7d1117 100%);
-
-    min-height:450px;
-
+    min-height:0;
     border-radius:10px;
-
     display:flex;
-
     align-items:center;
-
-    padding:40px;
-
+    padding:24px 32px;
     color:white;
-
 }
 
 
@@ -253,11 +244,17 @@ ul{
 
 
 .hero-content h1{
+    font-size:36px;
+    line-height:1.2;
+    margin-bottom:10px;
+}
 
-    font-size:48px;
-
-    margin-bottom:20px;
-
+.home-intro{
+    max-width:1050px;
+    color:#eeeeee;
+    font-size:16px;
+    line-height:1.6;
+    margin:0;
 }
 
 
@@ -334,7 +331,7 @@ ul{
 
     font-size:30px;
 
-    margin:40px 0 25px;
+    margin:20px 0 18px;
 
     border-left:6px solid #d71920;
 
@@ -1288,11 +1285,17 @@ table td{
 
 
 .hero{
+    min-height:0;
+    padding:20px 22px;
+}
 
-    min-height:350px;
+.hero-content h1{
+    font-size:28px;
+}
 
-    padding:25px;
-
+.home-intro{
+    font-size:15px;
+    line-height:1.55;
 }
 
 
@@ -1371,9 +1374,7 @@ table td{
 
 
 .hero-content h1{
-
-    font-size:26px;
-
+    font-size:24px;
 }
 
 
