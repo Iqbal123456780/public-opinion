@@ -1488,28 +1488,3 @@ table td{
         height: 220px;
     }
 }
-
-
-/* ================= PERFORMANCE AND IMAGE RATIO FIXES ================= */
-/* Preserve each source image's natural proportions to avoid distorted thumbnails. */
-.news-card > img:not([src*="logo.png"]) {
-    width: 100%;
-    height: auto;
-    max-height: none;
-    aspect-ratio: auto;
-    object-fit: contain;
-}
-
-/* Keep the lead image responsive while allowing its intrinsic aspect ratio. */
-.hero-card > img:not([src*="logo.png"]) {
-    width: 100%;
-    height: auto;
-    max-height: none;
-    aspect-ratio: auto;
-    object-fit: contain;
-}
-
-/* Avoid unnecessary hover scaling of images, which can cause visual overflow. */
-.news-card:hover img {
-    transform: none;
-}
