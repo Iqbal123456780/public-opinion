@@ -1388,7 +1388,7 @@ table td{
     width:100%;
     max-width:none;
     margin:0;
-    padding:38px 20px 42px;
+    padding:54px 20px 58px;
     border-radius:18px;
 }
 .newsletter-box h2 {
@@ -1405,13 +1405,13 @@ table td{
     display:block;
     width:100%;
     max-width:480px;
-    height:185px;
+    height:210px;
     margin:0 auto;
     border:0;
 }
 @media (max-width:768px) {
     .newsletter { margin-top:22px; }
-    .newsletter-box { padding:30px 14px 34px; }
+    .newsletter-box { padding:42px 14px 46px; }
     .newsletter-box h2 { font-size:21px; }
     .newsletter-box iframe { height:165px; }
 }
