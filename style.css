@@ -1389,7 +1389,7 @@ table td{
     max-width:none;
     margin:0;
     padding:24px 20px;
-    border-radius:0;
+    border-radius:18px;
 }
 .newsletter-box h2 {
     font-size:24px;
