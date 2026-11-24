@@ -61,7 +61,7 @@ nav {
 }
 
 nav a {
-    color: #ff454d;
+    color: #ffffff;
     text-decoration: none;
     display: inline-block;
     margin: 5px 10px;
@@ -69,11 +69,13 @@ nav a {
     font-size: 14px;
     font-weight: bold;
     border-bottom: 2px solid transparent;
+    transition: color .2s ease, border-color .2s ease;
 }
 
-nav a:hover {
-    color: #ffffff;
-    border-bottom-color: #ff454d;
+nav a:hover,
+nav a:focus-visible {
+    color: #ff3038;
+    border-bottom-color: #ff3038;
 }
 
 .container {
