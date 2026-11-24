@@ -1100,7 +1100,7 @@ table td{
 
 
 /* Keep homepage story thumbnails consistent and visible */
-.news-card > img:not([src*="logo.png"]){
+.news-card > img:not([src*="logo."]){
     display:block;
     width:100%;
     height:190px;
@@ -1110,7 +1110,7 @@ table td{
 }
 
 /* Keep the lead-story image proportional instead of letting it dominate */
-.hero-card > img:not([src*="logo.png"]){
+.hero-card > img:not([src*="logo."]){
     display:block;
     width:100%;
     height:auto;
