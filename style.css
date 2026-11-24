@@ -1532,3 +1532,19 @@ table td{
     .pon-ad-copy h2{font-size:27px}
     .pon-ad-aside{padding:16px}
 }
+
+
+/* Homepage Explore Advertising button: black with white text */
+.pon-home-ad .pon-ad-cta,
+.pon-home-ad .pon-ad-cta:visited{
+    background:#111111;
+    color:#ffffff;
+    border:1px solid #111111;
+    box-shadow:0 4px 10px rgba(0,0,0,.16);
+}
+.pon-home-ad .pon-ad-cta:hover,
+.pon-home-ad .pon-ad-cta:focus{
+    background:#333333;
+    color:#ffffff;
+    border-color:#333333;
+}
