@@ -20,9 +20,9 @@
     .pon-ad-sidebar{margin:0}
     .pon-ad-inarticle{margin:28px 0;background:#fafafa}
     .pon-article-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:22px;align-items:start}
-    .pon-article-layout>.article-card{min-width:0}
+    .pon-article-layout>.article-card{min-width:0}\n    .pon-legacy-layout{display:grid;grid-template-columns:minmax(0,1fr) 280px;gap:22px;align-items:start}\n    .pon-legacy-content{min-width:0}\n    .pon-legacy-layout>.pon-article-aside{min-width:0}
     .pon-article-aside{position:sticky;top:18px}
-    @media(max-width:850px){.pon-article-layout{grid-template-columns:1fr}.pon-article-aside{position:static}.pon-ad-sidebar{max-width:none}}
+    @media(max-width:850px){.pon-article-layout,.pon-legacy-layout{grid-template-columns:1fr}.pon-article-aside{position:static}.pon-ad-sidebar{max-width:none}}
     @media(max-width:650px){.pon-ad-banner{margin:16px 12px;padding:16px}}
   `;
   document.head.appendChild(style);
@@ -37,12 +37,27 @@
     aside.className = "pon-article-aside";
     aside.appendChild(makeSlot("sidebar", "Reach readers while they read", "Reserve this article sidebar placement for your brand."));
     layout.appendChild(aside);
-    const body = article.querySelector(".article-body");
-    if (body && !body.querySelector(".pon-ad-inarticle")) {
-      const headings = body.querySelectorAll("h2");
-      const target = headings.length >= 3 ? headings[2] : (headings.length ? headings[0] : null);
-      if (target) target.insertAdjacentElement("afterend", makeSlot("inarticle", "Put your message in the story", "A clearly labelled sponsored placement within this article."));
-      else body.appendChild(makeSlot("inarticle", "Put your message in the story", "A clearly labelled sponsored placement within this article."));
+  } else if (!article && !document.querySelector(".pon-legacy-layout")) {
+    const main = document.querySelector("main.container");
+    if (main && (main.querySelector("article") || main.querySelector(".article"))) {
+      const layout = document.createElement("div");
+      layout.className = "pon-legacy-layout";
+      const content = document.createElement("div");
+      content.className = "pon-legacy-content";
+      while (main.firstChild) content.appendChild(main.firstChild);
+      layout.appendChild(content);
+      const aside = document.createElement("aside");
+      aside.className = "pon-article-aside";
+      aside.appendChild(makeSlot("sidebar", "Reach readers while they read", "Reserve this article sidebar placement for your brand."));
+      layout.appendChild(aside);
+      main.appendChild(layout);
     }
+  }
+  const body = document.querySelector(".article-body,.article-content,article.article,.article");
+  if (body && !body.querySelector(".pon-ad-inarticle")) {
+    const headings = body.querySelectorAll("h2");
+    const target = headings.length >= 3 ? headings[2] : (headings.length ? headings[0] : null);
+    if (target) target.insertAdjacentElement("afterend", makeSlot("inarticle", "Put your message in the story", "A clearly labelled sponsored placement within this article."));
+    else body.appendChild(makeSlot("inarticle", "Put your message in the story", "A clearly labelled sponsored placement within this article."));
   }
 })();
