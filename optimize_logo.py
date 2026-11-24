@@ -11,7 +11,7 @@ if not SOURCE.exists():
 
 with Image.open(SOURCE) as original:
     image = original.convert("RGBA")
-    image.thumbnail((720, 720), Image.Resampling.LANCZOS)
+    image.thumbnail((480, 480), Image.Resampling.LANCZOS)
     image.save(OUTPUT, format="WEBP", quality=88, method=6)
 
 extensions = {".html", ".css", ".js", ".xml", ".json", ".md", ".txt"}
