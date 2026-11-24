@@ -115,7 +115,7 @@ nav a:focus-visible {
     padding: 23px;
     border-radius: 8px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.05);
-    display: flex;
+    display: none;
     flex-direction: column;
 }
 
@@ -601,6 +601,13 @@ cards.forEach(function(card) {
 
     if (matches) {
         visibleCount++;
+        if (visibleCount === 1) {
+            const featuredImage = card.querySelector(".category-featured-image img:first-child");
+            if (featuredImage) {
+                featuredImage.loading = "eager";
+                featuredImage.fetchPriority = "high";
+            }
+        }
     }
 });
 
