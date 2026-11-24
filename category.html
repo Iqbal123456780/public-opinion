@@ -577,7 +577,7 @@ cards.forEach(function(card) {
     const matches =
         !selectedCategory || card.dataset.category === categoryKey;
 
-    card.hidden = !matches;
+    card.style.display = matches ? "flex" : "none";
 
     if (matches) {
         visibleCount++;
