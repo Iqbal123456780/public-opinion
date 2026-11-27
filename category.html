@@ -734,7 +734,7 @@ const categoryFallbackImages = {
 };
 
 cards.forEach(function(card) {
-    if (card.querySelector(".category-featured-image img, img:not([src*="logo."])")) return;
+    if (card.querySelector('.category-featured-image img, img:not([src*="logo."])')) return;
 
     const category = (card.dataset.category || "").toLowerCase();
     const imageUrl = categoryFallbackImages[category];
