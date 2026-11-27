@@ -1650,3 +1650,10 @@ table td{
     .pagination-actions { flex-direction: column; }
     .pagination-btn { width: 100%; max-width: 320px; }
 }
+
+
+/* Enforce pagination visibility even when other card styles set display. */
+.main-news .news-card[hidden],
+.news-grid .news-card[hidden] {
+    display: none !important;
+}
