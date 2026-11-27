@@ -290,16 +290,22 @@ footer a {
 }
 
 
-/* Active category indicator in the category-page header */
-nav a.active-category {
-    color: #ff3038;
-    border-bottom: 3px solid #ff3038;
-    padding-bottom: 7px;
+/* Strong, always-visible active navigation state on category pages */
+nav a.active-category,
+nav a.active-category:visited {
+    color: #ffffff !important;
+    background: #d71920 !important;
+    border: 2px solid #ff3038 !important;
+    border-bottom: 4px solid #ff3038 !important;
+    border-radius: 5px;
+    padding: 6px 10px 7px;
+    box-shadow: 0 2px 10px rgba(215, 25, 32, .28);
 }
 nav a.active-category:hover,
 nav a.active-category:focus-visible {
-    color: #ffffff;
-    border-bottom-color: #ffffff;
+    color: #ffffff !important;
+    background: #a91118 !important;
+    border-color: #ff5960 !important;
 }
 
 </style>
@@ -692,13 +698,14 @@ const categoryNavLinks = document.querySelectorAll(
     'nav a[href*="category.html?cat="]'
 );
 categoryNavLinks.forEach(function(link) {
-    const linkUrl = new URL(link.href, window.location.href);
+    const linkUrl = new URL(link.getAttribute("href"), window.location.href);
     const linkCategory = (linkUrl.searchParams.get("cat") || "").toLowerCase();
-    if (categoryKey && linkCategory === categoryKey) {
-        link.classList.add("active-category");
+    const isCurrentCategory = Boolean(categoryKey) && linkCategory === categoryKey;
+
+    link.classList.toggle("active-category", isCurrentCategory);
+    if (isCurrentCategory) {
         link.setAttribute("aria-current", "page");
     } else {
-        link.classList.remove("active-category");
         link.removeAttribute("aria-current");
     }
 });
