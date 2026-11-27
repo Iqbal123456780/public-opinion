@@ -593,7 +593,7 @@
     pagination.hidden = false;
 
     const previous = currentPage > 1
-        ? '<a class="pagination-btn pagination-secondary" href="index.html?page=' + (currentPage - 1) + '">← Previous Articles</a>'
+        ? '<a class="pagination-btn pagination-secondary" aria-label="Go to previous article page" href="index.html?page=' + (currentPage - 1) + '"><span class="pagination-label">Previous Articles</span></a>'
         : "";
     const next = currentPage < totalPages
         ? '<a class="pagination-btn" href="index.html?page=' + (currentPage + 1) + '">Read More Articles →</a>'
