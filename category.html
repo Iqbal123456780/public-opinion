@@ -289,6 +289,19 @@ footer a {
     margin: 0 0 12px;
 }
 
+
+/* Active category indicator in the category-page header */
+nav a.active-category {
+    color: #ff3038;
+    border-bottom: 3px solid #ff3038;
+    padding-bottom: 7px;
+}
+nav a.active-category:hover,
+nav a.active-category:focus-visible {
+    color: #ffffff;
+    border-bottom-color: #ffffff;
+}
+
 </style>
 </head>
 
@@ -674,6 +687,22 @@ const categories = {
 
 const params = new URLSearchParams(window.location.search);
 const categoryKey = (params.get("cat") || "").toLowerCase();
+
+const categoryNavLinks = document.querySelectorAll(
+    'nav a[href*="category.html?cat="]'
+);
+categoryNavLinks.forEach(function(link) {
+    const linkUrl = new URL(link.href, window.location.href);
+    const linkCategory = (linkUrl.searchParams.get("cat") || "").toLowerCase();
+    if (categoryKey && linkCategory === categoryKey) {
+        link.classList.add("active-category");
+        link.setAttribute("aria-current", "page");
+    } else {
+        link.classList.remove("active-category");
+        link.removeAttribute("aria-current");
+    }
+});
+
 const selectedCategory = categories[categoryKey];
 
 const titleElement = document.getElementById("categoryTitle");
