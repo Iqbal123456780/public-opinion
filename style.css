@@ -1738,3 +1738,32 @@ table td{
     line-height: 1.3 !important;
     text-indent: 0 !important;
 }
+
+
+/* Category archive: a distinct black Home Page control follows Previous Articles. */
+.pagination-wrap .pagination-actions .pagination-home-btn,
+.pagination-wrap .pagination-actions .pagination-home-btn:link,
+.pagination-wrap .pagination-actions .pagination-home-btn:visited {
+    display: inline-flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+    min-width: 280px;
+    min-height: 58px;
+    padding: 14px 24px;
+    border: 2px solid #111111 !important;
+    border-radius: 10px;
+    background: #111111 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    font-size: 18px;
+    font-weight: 800;
+    text-decoration: none !important;
+    line-height: 1.3;
+}
+.pagination-wrap .pagination-actions .pagination-home-btn:hover,
+.pagination-wrap .pagination-actions .pagination-home-btn:focus-visible {
+    background: #d71920 !important;
+    border-color: #d71920 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
