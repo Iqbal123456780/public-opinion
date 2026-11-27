@@ -728,12 +728,30 @@ const emptyMessage = document.getElementById("emptyMessage");
 const categoryFallbackImages = {
     politics: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Parliament_House_Islamabad.jpg/640px-Parliament_House_Islamabad.jpg",
     world: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/COP30_-_Delegates_02.jpg/640px-COP30_-_Delegates_02.jpg",
-    business: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Datacenter_Server_Racks_%2822370909788%29.jpg/640px-Datacenter_Server_Racks_%2822370909788%29.jpg",
+    business: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/US_Dollar_banknotes.jpg/640px-US_Dollar_banknotes.jpg",
     sports: "https://upload.wikimedia.org/wikipedia/commons/4/42/RWPCS3.jpg",
     technology: "https://upload.wikimedia.org/wikipedia/commons/4/41/Semiconductor_Wafer_of_Microelectronics.jpg"
 };
 
+function attachCategoryImageFallback(image, category) {
+    if (image.dataset.fallbackHandlerAttached) return;
+    image.dataset.fallbackHandlerAttached = "true";
+    image.addEventListener("error", function() {
+        const fallback = categoryFallbackImages[category];
+        if (fallback && image.src !== fallback) {
+            image.src = fallback;
+        } else {
+            image.style.display = "none";
+            if (image.parentElement) image.parentElement.style.background = "#eeeeee";
+        }
+    });
+}
+
 cards.forEach(function(card) {
+    const category = (card.dataset.category || "").toLowerCase();
+    card.querySelectorAll('img:not([src*="logo."])').forEach(function(image) {
+        attachCategoryImageFallback(image, category);
+    });
     if (card.querySelector('.category-featured-image img, img:not([src*="logo."])')) return;
 
     const category = (card.dataset.category || "").toLowerCase();
@@ -749,6 +767,7 @@ cards.forEach(function(card) {
     image.alt = (title ? title.textContent.trim() : category + " news") + " — " + category + " news illustration";
     image.loading = "lazy";
     image.decoding = "async";
+    attachCategoryImageFallback(image, category);
     imageWrap.appendChild(image);
     card.insertBefore(imageWrap, card.firstChild);
 });
