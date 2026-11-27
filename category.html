@@ -643,6 +643,8 @@ nav a.active-category:focus-visible {
         No articles are currently listed in this category. Please explore our other sections.
     </p>
 
+    <nav class="pagination-wrap" id="categoryPagination" aria-label="Category article pages"></nav>
+
     <a class="back-link" href="index.html">&larr; Back to Homepage</a>
 
 </main>
@@ -745,26 +747,63 @@ if (selectedCategory) {
         "https://iqbal123456780.github.io/public-opinion/category.html";
 }
 
+const pageSize = 10;
+const requestedPage = Math.max(1, parseInt(params.get("page") || "1", 10) || 1);
+const matchingCards = Array.from(cards).filter(function(card) {
+    return !selectedCategory || card.dataset.category === categoryKey;
+});
+const totalPages = Math.max(1, Math.ceil(matchingCards.length / pageSize));
+const currentPage = Math.min(requestedPage, totalPages);
+const startIndex = (currentPage - 1) * pageSize;
+const endIndex = Math.min(startIndex + pageSize, matchingCards.length);
+
 cards.forEach(function(card) {
-    const matches =
-        !selectedCategory || card.dataset.category === categoryKey;
+    card.style.display = "none";
+});
 
-    card.style.display = matches ? "flex" : "none";
+matchingCards.forEach(function(card, index) {
+    const isOnCurrentPage = index >= startIndex && index < endIndex;
+    card.style.display = isOnCurrentPage ? "flex" : "none";
 
-    if (matches) {
-        visibleCount++;
-        if (visibleCount === 1) {
-            const featuredImage = card.querySelector(".category-featured-image img:first-child");
-            if (featuredImage) {
-                featuredImage.loading = "eager";
-                featuredImage.fetchPriority = "high";
-            }
+    if (isOnCurrentPage && index === startIndex) {
+        const featuredImage = card.querySelector(".category-featured-image img:first-child");
+        if (featuredImage) {
+            featuredImage.loading = "eager";
+            featuredImage.fetchPriority = "high";
         }
     }
 });
 
-if (visibleCount === 0) {
+if (matchingCards.length === 0) {
     emptyMessage.style.display = "block";
+}
+
+const categoryPagination = document.getElementById("categoryPagination");
+if (categoryPagination && totalPages > 1) {
+    const categoryQuery = selectedCategory ? "&cat=" + encodeURIComponent(categoryKey) : "";
+    const baseUrl = "category.html" + (selectedCategory ? "?cat=" + encodeURIComponent(categoryKey) : "?");
+    const pageUrl = function(page) {
+        return selectedCategory
+            ? "category.html?cat=" + encodeURIComponent(categoryKey) + "&page=" + page
+            : "category.html?page=" + page;
+    };
+    const previous = currentPage > 1
+        ? '<a class="pagination-btn pagination-secondary" href="' + pageUrl(currentPage - 1) + '">← Previous Articles</a>'
+        : "";
+    const next = currentPage < totalPages
+        ? '<a class="pagination-btn" href="' + pageUrl(currentPage + 1) + '">Read More Articles →</a>'
+        : "";
+
+    categoryPagination.innerHTML =
+        '<p class="pagination-status">Page ' + currentPage + ' of ' + totalPages +
+        ' · Showing articles ' + (startIndex + 1) + '–' + endIndex +
+        ' of ' + matchingCards.length + '</p>' +
+        '<div class="pagination-actions">' + previous + next + '</div>';
+}
+if (currentPage > 1) {
+    canonicalElement.href = canonicalElement.href + "&page=" + currentPage;
+    document.title = (selectedCategory ? selectedCategory.title : "Latest News") +
+        " – Page " + currentPage + " | Public Opinion News";
 }
 </script>
 
