@@ -346,14 +346,16 @@
     const articleList = document.querySelector(".main-news");
     if (!articleList) return;
 
-    const articles = Array.from(articleList.querySelectorAll(":scope > .news-card"));
+    // Include every story card in Latest News, even if markup is nested.
+    const articles = Array.from(articleList.querySelectorAll(".news-card"));
     const totalPages = Math.max(1, Math.ceil(articles.length / pageSize));
     const currentPage = Math.min(requestedPage, totalPages);
     const start = (currentPage - 1) * pageSize;
     const end = Math.min(start + pageSize, articles.length);
 
     articles.forEach(function (article, index) {
-        article.style.display = index >= start && index < end ? "" : "none";
+        article.hidden = !(index >= start && index < end);
+        article.setAttribute("aria-hidden", article.hidden ? "true" : "false");
     });
 
     const heading = document.querySelector(".section-title");
