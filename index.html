@@ -544,6 +544,37 @@
     };
 
     // Include every story card in Latest News, even if markup is nested.
+    const articleThumbnailImages = {
+    "rawalpindi-cpo-appointment-reversed-punjab-police-reshuffle-2026.html": "https://upload.wikimedia.org/wikipedia/commons/6/62/Rawalpindi.jpg",
+    "carlos-alcaraz-atp-finals-semifinal-tiafoe-medvedev-november-2026.html": "https://upload.wikimedia.org/wikipedia/commons/a/a5/Carlos_Alcaraz_-_Roland-Garros_2025.jpg",
+    "youth-sports-development.html": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=85",
+    "civil-military-relations-pakistan.html": "https://upload.wikimedia.org/wikipedia/commons/b/bf/D%C3%A9fil%C3%A9_de_l%27arm%C3%A9e_pakistanaise%2C_23_mars_2018.jpg",
+    "future-of-democracy-pakistan.html": "https://upload.wikimedia.org/wikipedia/commons/8/8a/PK_National_Assembly.jpg",
+    "pakistan-election-trends.html": "https://upload.wikimedia.org/wikipedia/commons/0/0a/A_women_voter_casts_her_ballot_in_a_polling_station_in_NA-250.jpg",
+    "gilgit-baltistan-election-results-2026.html": "https://upload.wikimedia.org/wikipedia/commons/d/d6/2020_Gilgit-Baltistan_Assembly_election_women.jpg",
+    "regional-politics-south-asia.html": "https://upload.wikimedia.org/wikipedia/commons/2/21/The_Prime_Minister_Shri_Atal_Bihari_Vajpayee_and_the_other_Heads_of_Governments_pose_for_a_group_photograph_at_the_12th_SAARC_Summit_in_Islamabad_on_January_6%2C_2004.jpg",
+    "trump-iran-deal.html": "https://images.unsplash.com/photo-1529107386315-e1a2ed48a620?auto=format&fit=crop&w=1200&q=85",
+    "gaza-ceasefire-board-peace-warning-winter-aid-november-2026.html": "https://upload.wikimedia.org/wikipedia/commons/c/c5/An_aerial_view_of_Al-Mawasi_area_where_displaced_Palestinians_live_in_tents%2C_Gaza_Strip.jpg",
+    "trump-xi-putin-summit-shenzhen-apec-2026.html": "https://upload.wikimedia.org/wikipedia/commons/6/6b/Trump_and_Xi_at_SZX-20261118_%282%29.jpg",
+    "global-economic-trends.html": "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=85",
+    "xai-california-ai-training-data-disclosure-appeals-court-2026.html": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Datacenter_Server_Racks_%2822370909788%29.jpg",
+    "microsoft-new-ai-models-coding-cybersecurity-ignite-2026.html": "https://microsoft.ai/wp-content/uploads/2026/11/code2-ignite-header.webp",
+    "pakistan-lng-cargoes-winter-supply-qatar-oman-us-azerbaijan-2026.html": "https://upload.wikimedia.org/wikipedia/commons/d/d1/2023-05-20_01_LNG_tanker%2C_GULF_ENERGY_-_IMO_7390143.jpg",
+    "artificial-intelligence-future.html": "https://upload.wikimedia.org/wikipedia/commons/b/b3/Datacenter_Server_Racks_%2822370909788%29.jpg",
+    "pakistan-economy-outlook-2026.html": "https://upload.wikimedia.org/wikipedia/commons/a/a9/Karachi_Skyline.jpg",
+    "inflation-impact-pakistan.html": "https://upload.wikimedia.org/wikipedia/commons/e/e3/Pakistan_Orange_Seller.jpg",
+    "pakistan-stock-market-analysis.html": "https://upload.wikimedia.org/wikipedia/commons/1/1e/Karachi_downtown_skyline.jpg",
+    "small-business-growth-pakistan.html": "https://upload.wikimedia.org/wikipedia/commons/3/37/Fruit-seller.JPG",
+    "digital-economy-pakistan.html": "https://upload.wikimedia.org/wikipedia/commons/d/dd/Arfa_Software_Technology_Park%2C_Ferozepur_Road%2C_Lahore.jpg",
+    "pakistan-shaheens-asia-cup-rising-stars-qatar-2026.html": "https://images.unsplash.com/photo-1531415074968-036ba1b575da?auto=format&fit=crop&w=1400&q=85",
+    "ms-dhoni-retires-ipl-csk-mentor-2027.html": "https://upload.wikimedia.org/wikipedia/commons/c/c9/MS_Dhoni.jpg",
+    "pakistan-cricket-future.html": "https://upload.wikimedia.org/wikipedia/commons/1/1f/Babar_Azam.png",
+    "major-sports-events-2026.html": "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=1200&q=85",
+    "us-ai-chip-export-controls-remote-data-centres-2026.html": "https://upload.wikimedia.org/wikipedia/commons/f/f5/Micro-chips_wafer.jpg",
+    "bilawal-bhutto-pakistan-political-system-crisis.html": "https://upload.wikimedia.org/wikipedia/commons/c/c3/Bilawal_Bhutto_Zardari_2024.jpg",
+    "political-situation-pakistan.html": "https://upload.wikimedia.org/wikipedia/commons/3/34/Pakistani_parliament_house.jpg",
+    "sbp-pakistan-economic-growth-outlook-fy27-2026.html": "https://upload.wikimedia.org/wikipedia/commons/1/12/State_Bank_of_Pakistan_Building.jpg"
+};
     const articles = Array.from(articleList.querySelectorAll(".news-card"));
     articles.forEach(function(article) {
         let category = (article.dataset.category || "").toLowerCase();
@@ -569,7 +600,9 @@
         // Older archive cards had no thumbnail markup. Add a visible
         // category-relevant image so every homepage card has a thumbnail.
         if (!article.querySelector('.category-featured-image img, img:not([src*="logo."])')) {
-            const fallback = imageFallbacks[category];
+            const articleLink = article.querySelector('a[href$=".html"]');
+            const articlePath = articleLink ? articleLink.getAttribute("href").split("/").pop() : "";
+            const fallback = articleThumbnailImages[articlePath] || imageFallbacks[category];
             if (fallback) {
                 const heading = article.querySelector("h3");
                 const imageWrap = document.createElement("div");
