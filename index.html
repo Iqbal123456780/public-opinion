@@ -346,8 +346,38 @@
     const articleList = document.querySelector(".main-news");
     if (!articleList) return;
 
+    // Keep a visible category-relevant thumbnail if an external image fails.
+    const imageFallbacks = {
+        politics: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Parliament_House_Islamabad.jpg/640px-Parliament_House_Islamabad.jpg",
+        world: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/COP30_-_Delegates_02.jpg/640px-COP30_-_Delegates_02.jpg",
+        business: "https://thumb.wikimedia.org/wikipedia/commons/thumb/a/a2/US_Dollar_banknotes.jpg/640px-US_Dollar_banknotes.jpg",
+        sports: "https://upload.wikimedia.org/wikipedia/commons/4/42/RWPCS3.jpg",
+        technology: "https://upload.wikimedia.org/wikipedia/commons/4/41/Semiconductor_Wafer_of_Microelectronics.jpg"
+    };
+
     // Include every story card in Latest News, even if markup is nested.
     const articles = Array.from(articleList.querySelectorAll(".news-card"));
+    articles.forEach(function(article) {
+        let category = (article.dataset.category || "").toLowerCase();
+        if (!category) {
+            const label = article.querySelector(".category");
+            const value = label ? label.textContent.toLowerCase() : "";
+            category = value.indexOf("politic") >= 0 ? "politics" :
+                value.indexOf("world") >= 0 ? "world" :
+                value.indexOf("business") >= 0 ? "business" :
+                value.indexOf("sport") >= 0 ? "sports" :
+                value.indexOf("technolog") >= 0 || value.indexOf("ai") >= 0 ? "technology" : "";
+        }
+        article.querySelectorAll('img:not([src*="logo."])').forEach(function(image) {
+            if (image.dataset.fallbackHandlerAttached) return;
+            image.dataset.fallbackHandlerAttached = "true";
+            image.addEventListener("error", function() {
+                const fallback = imageFallbacks[category];
+                if (fallback && image.src !== fallback) image.src = fallback;
+                else image.style.display = "none";
+            });
+        });
+    });
     const totalPages = Math.max(1, Math.ceil(articles.length / pageSize));
     const currentPage = Math.min(requestedPage, totalPages);
     const start = (currentPage - 1) * pageSize;
