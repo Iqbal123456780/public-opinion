@@ -115,8 +115,11 @@ nav a:focus-visible {
     padding: 23px;
     border-radius: 8px;
     box-shadow: 0 3px 12px rgba(0,0,0,0.05);
-    display: none;
+    display: flex;
     flex-direction: column;
+}
+.news-card[hidden] {
+    display: none !important;
 }
 
 .news-card h3 {
@@ -717,8 +720,38 @@ const selectedCategory = categories[categoryKey];
 const titleElement = document.getElementById("categoryTitle");
 const descriptionElement = document.getElementById("categoryDescription");
 const canonicalElement = document.getElementById("canonicalLink");
-const cards = document.querySelectorAll(".news-card");
+const cards = document.querySelectorAll(".news-grid .news-card");
 const emptyMessage = document.getElementById("emptyMessage");
+
+// Give older archive stories a visible category-relevant thumbnail when
+// their original card has no image. Existing story-specific images are kept.
+const categoryFallbackImages = {
+    politics: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/11/Parliament_House_Islamabad.jpg/640px-Parliament_House_Islamabad.jpg",
+    world: "https://upload.wikimedia.org/wikipedia/commons/thumb/1/1a/COP30_-_Delegates_02.jpg/640px-COP30_-_Delegates_02.jpg",
+    business: "https://upload.wikimedia.org/wikipedia/commons/thumb/b/b3/Datacenter_Server_Racks_%2822370909788%29.jpg/640px-Datacenter_Server_Racks_%2822370909788%29.jpg",
+    sports: "https://upload.wikimedia.org/wikipedia/commons/4/42/RWPCS3.jpg",
+    technology: "https://upload.wikimedia.org/wikipedia/commons/4/41/Semiconductor_Wafer_of_Microelectronics.jpg"
+};
+
+cards.forEach(function(card) {
+    if (card.querySelector(".category-featured-image img, img:not(.brand-mark)")) return;
+
+    const category = (card.dataset.category || "").toLowerCase();
+    const imageUrl = categoryFallbackImages[category];
+    if (!imageUrl) return;
+
+    const title = card.querySelector("h3");
+    const imageWrap = document.createElement("div");
+    imageWrap.className = "category-featured-image";
+
+    const image = document.createElement("img");
+    image.src = imageUrl;
+    image.alt = (title ? title.textContent.trim() : category + " news") + " — " + category + " news illustration";
+    image.loading = "lazy";
+    image.decoding = "async";
+    imageWrap.appendChild(image);
+    card.insertBefore(imageWrap, card.firstChild);
+});
 
 if (selectedCategory) {
     titleElement.textContent = selectedCategory.title;
@@ -756,12 +789,14 @@ const startIndex = (currentPage - 1) * pageSize;
 const endIndex = Math.min(startIndex + pageSize, matchingCards.length);
 
 cards.forEach(function(card) {
-    card.style.display = "none";
+    card.hidden = true;
+    card.setAttribute("aria-hidden", "true");
 });
 
 matchingCards.forEach(function(card, index) {
     const isOnCurrentPage = index >= startIndex && index < endIndex;
-    card.style.display = isOnCurrentPage ? "flex" : "none";
+    card.hidden = !isOnCurrentPage;
+    card.setAttribute("aria-hidden", isOnCurrentPage ? "false" : "true");
 
     if (isOnCurrentPage && index === startIndex) {
         const featuredImage = card.querySelector(".category-featured-image img:first-child");
