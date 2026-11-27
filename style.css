@@ -1673,3 +1673,41 @@ table td{
 .news-grid .news-card[hidden] {
     display: none !important;
 }
+
+
+/* Keep BOTH pagination directions equally prominent across every listing page. */
+.pagination-wrap .pagination-btn,
+.pagination-wrap .pagination-btn:link,
+.pagination-wrap .pagination-btn:visited,
+.pagination-wrap .pagination-btn.pagination-secondary,
+.pagination-wrap .pagination-btn.pagination-secondary:link,
+.pagination-wrap .pagination-btn.pagination-secondary:visited {
+    background: #d71920 !important;
+    border: 2px solid #b51219 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+    text-decoration: none !important;
+}
+.pagination-wrap .pagination-btn:hover,
+.pagination-wrap .pagination-btn:focus-visible,
+.pagination-wrap .pagination-btn.pagination-secondary:hover,
+.pagination-wrap .pagination-btn.pagination-secondary:focus-visible {
+    background: #111111 !important;
+    border-color: #111111 !important;
+    color: #ffffff !important;
+    -webkit-text-fill-color: #ffffff !important;
+}
+.pagination-wrap .pagination-actions .pagination-btn {
+    min-width: 280px;
+    min-height: 58px;
+    font-weight: 800;
+}
+@media (max-width: 520px) {
+    .pagination-wrap .pagination-actions {
+        flex-direction: column;
+    }
+    .pagination-wrap .pagination-actions .pagination-btn {
+        width: min(100%, 320px);
+        min-width: 0;
+    }
+}
