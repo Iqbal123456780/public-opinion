@@ -1789,3 +1789,17 @@ table td{
         min-width: 0 !important;
     }
 }
+
+
+/* Stack category archive navigation: Previous first, then the black Home Page link. */
+#categoryPagination .pagination-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 14px !important;
+}
+#categoryPagination .pagination-actions .pagination-btn,
+#categoryPagination .pagination-actions .pagination-home-btn {
+    width: min(100%, 320px);
+}
