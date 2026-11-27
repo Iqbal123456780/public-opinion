@@ -720,8 +720,6 @@ const canonicalElement = document.getElementById("canonicalLink");
 const cards = document.querySelectorAll(".news-card");
 const emptyMessage = document.getElementById("emptyMessage");
 
-let visibleCount = 0;
-
 if (selectedCategory) {
     titleElement.textContent = selectedCategory.title;
     descriptionElement.textContent = selectedCategory.description;
@@ -780,8 +778,6 @@ if (matchingCards.length === 0) {
 
 const categoryPagination = document.getElementById("categoryPagination");
 if (categoryPagination && totalPages > 1) {
-    const categoryQuery = selectedCategory ? "&cat=" + encodeURIComponent(categoryKey) : "";
-    const baseUrl = "category.html" + (selectedCategory ? "?cat=" + encodeURIComponent(categoryKey) : "?");
     const pageUrl = function(page) {
         return selectedCategory
             ? "category.html?cat=" + encodeURIComponent(categoryKey) + "&page=" + page
@@ -801,7 +797,7 @@ if (categoryPagination && totalPages > 1) {
         '<div class="pagination-actions">' + previous + next + '</div>';
 }
 if (currentPage > 1) {
-    canonicalElement.href = canonicalElement.href + "&page=" + currentPage;
+    canonicalElement.href = canonicalElement.href + (canonicalElement.href.indexOf("?") === -1 ? "?" : "&") + "page=" + currentPage;
     document.title = (selectedCategory ? selectedCategory.title : "Latest News") +
         " – Page " + currentPage + " | Public Opinion News";
 }
