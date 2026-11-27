@@ -1767,3 +1767,25 @@ table td{
     color: #ffffff !important;
     -webkit-text-fill-color: #ffffff !important;
 }
+
+
+/* Category pagination stacks Previous first, then the black Home Page button. */
+.pagination-wrap .category-pagination-actions {
+    display: flex !important;
+    flex-direction: column !important;
+    align-items: center !important;
+    justify-content: center !important;
+    gap: 16px !important;
+}
+.pagination-wrap .category-pagination-actions .pagination-btn,
+.pagination-wrap .category-pagination-actions .pagination-home-btn {
+    width: min(100%, 320px) !important;
+    min-width: 280px !important;
+}
+@media (max-width: 520px) {
+    .pagination-wrap .category-pagination-actions .pagination-btn,
+    .pagination-wrap .category-pagination-actions .pagination-home-btn {
+        width: min(100%, 320px) !important;
+        min-width: 0 !important;
+    }
+}
