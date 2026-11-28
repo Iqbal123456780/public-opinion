@@ -928,15 +928,11 @@ if (categoryPagination && totalPages > 1) {
     const next = currentPage < totalPages
         ? '<a class="pagination-btn" href="' + pageUrl(currentPage + 1) + '">Read More Articles →</a>'
         : "";
-    const homeButton = currentPage > 1
-        ? '<a class="pagination-home-btn" href="index.html">Home Page</a>'
-        : "";
-
     categoryPagination.innerHTML =
         '<p class="pagination-status">Page ' + currentPage + ' of ' + totalPages +
         ' · Showing articles ' + (startIndex + 1) + '–' + endIndex +
         ' of ' + matchingCards.length + '</p>' +
-        '<div class="pagination-actions category-pagination-actions">' + previous + homeButton + next + '</div>';
+        '<div class="pagination-actions category-pagination-actions">' + previous + next + '</div>';
 }
 if (currentPage > 1) {
     canonicalElement.href = canonicalElement.href + (canonicalElement.href.indexOf("?") === -1 ? "?" : "&") + "page=" + currentPage;
