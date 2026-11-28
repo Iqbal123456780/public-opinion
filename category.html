@@ -346,6 +346,40 @@ body.politics-category #categoryPagination .pagination-home-btn:focus-visible {
     body.politics-category #categoryPagination .pagination-home-btn { width: 100%; min-width: 0; }
 }
 
+/* World-category pagination: clear, prominent red archive controls */
+body.world-category #categoryPagination { margin: 30px 0 12px; text-align: center; }
+body.world-category #categoryPagination .pagination-status { margin: 0 0 16px; color: #555; font-size: 15px; font-weight: 700; }
+body.world-category #categoryPagination .category-pagination-actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px; }
+body.world-category #categoryPagination .pagination-btn,
+body.world-category #categoryPagination .pagination-secondary {
+    display: inline-flex; justify-content: center; align-items: center; min-width: 210px;
+    padding: 14px 24px; border: 2px solid #d71920; border-radius: 6px;
+    background: #d71920; color: #fff; font-size: 16px; font-weight: 800;
+    line-height: 1.35; text-decoration: none; box-shadow: 0 4px 12px rgba(215,25,32,.22);
+    transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+body.world-category #categoryPagination .pagination-btn:hover,
+body.world-category #categoryPagination .pagination-btn:focus-visible,
+body.world-category #categoryPagination .pagination-secondary:hover,
+body.world-category #categoryPagination .pagination-secondary:focus-visible {
+    background: #111; border-color: #111; color: #fff; transform: translateY(-1px);
+}
+body.world-category #categoryPagination .pagination-home-btn {
+    display: inline-flex; justify-content: center; align-items: center; min-width: 150px;
+    padding: 14px 20px; border: 2px solid #111; border-radius: 6px;
+    background: #111; color: #fff; font-weight: 800; text-decoration: none;
+}
+body.world-category #categoryPagination .pagination-home-btn:hover,
+body.world-category #categoryPagination .pagination-home-btn:focus-visible {
+    background: #d71920; border-color: #d71920;
+}
+@media (max-width: 650px) {
+    body.world-category #categoryPagination .category-pagination-actions { flex-direction: column; align-items: stretch; }
+    body.world-category #categoryPagination .pagination-btn,
+    body.world-category #categoryPagination .pagination-secondary,
+    body.world-category #categoryPagination .pagination-home-btn { width: 100%; min-width: 0; }
+}
+
 </style>
 </head>
 
@@ -750,6 +784,7 @@ const params = new URLSearchParams(window.location.search);
 const categoryKey = (params.get("cat") || "").toLowerCase();
 
 document.body.classList.toggle("politics-category", categoryKey === "politics");
+document.body.classList.toggle("world-category", categoryKey === "world");
 
 const categoryNavLinks = document.querySelectorAll(
     'nav a[href*="category.html?cat="]'
