@@ -428,6 +428,31 @@ body.sports-category #categoryPagination .pagination-secondary:focus-visible {
     body.sports-category #categoryPagination .pagination-secondary { width: 100%; min-width: 0; }
 }
 
+
+/* Technology & AI category pagination: prominent red archive controls */
+body.technology-category #categoryPagination { margin: 30px 0 12px; text-align: center; }
+body.technology-category #categoryPagination .pagination-status { margin: 0 0 16px; color: #555; font-size: 15px; font-weight: 700; }
+body.technology-category #categoryPagination .category-pagination-actions { display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 12px; }
+body.technology-category #categoryPagination .pagination-btn,
+body.technology-category #categoryPagination .pagination-secondary {
+    display: inline-flex; justify-content: center; align-items: center; min-width: 210px;
+    padding: 14px 24px; border: 2px solid #d71920; border-radius: 6px;
+    background: #d71920; color: #fff; font-size: 16px; font-weight: 800;
+    line-height: 1.35; text-decoration: none; box-shadow: 0 4px 12px rgba(215,25,32,.22);
+    transition: background .2s ease, border-color .2s ease, transform .2s ease;
+}
+body.technology-category #categoryPagination .pagination-btn:hover,
+body.technology-category #categoryPagination .pagination-btn:focus-visible,
+body.technology-category #categoryPagination .pagination-secondary:hover,
+body.technology-category #categoryPagination .pagination-secondary:focus-visible {
+    background: #111; border-color: #111; color: #fff; transform: translateY(-1px);
+}
+@media (max-width: 650px) {
+    body.technology-category #categoryPagination .category-pagination-actions { flex-direction: column; align-items: stretch; }
+    body.technology-category #categoryPagination .pagination-btn,
+    body.technology-category #categoryPagination .pagination-secondary { width: 100%; min-width: 0; }
+}
+
 </style>
 </head>
 
@@ -860,6 +885,7 @@ document.body.classList.toggle("politics-category", categoryKey === "politics");
 document.body.classList.toggle("world-category", categoryKey === "world");
 document.body.classList.toggle("business-category", categoryKey === "business");
 document.body.classList.toggle("sports-category", categoryKey === "sports");
+document.body.classList.toggle("technology-category", categoryKey === "technology");
 
 const categoryNavLinks = document.querySelectorAll(
     'nav a[href*="category.html?cat="]'
