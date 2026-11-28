@@ -821,12 +821,12 @@ function attachCategoryImageFallback(image, category) {
     if (image.dataset.fallbackHandlerAttached) return;
     image.dataset.fallbackHandlerAttached = "true";
     image.addEventListener("error", function() {
-        const fallback = categoryFallbackImages[category];
-        if (fallback && image.src !== fallback) {
-            image.src = fallback;
-        } else {
-            image.style.display = "none";
-            if (image.parentElement) image.parentElement.style.background = "#eeeeee";
+        // Never replace a story-specific thumbnail with one generic category image.
+        // A failed image is hidden so unrelated articles cannot appear to share a photo.
+        image.style.display = "none";
+        if (image.parentElement) {
+            image.parentElement.style.background = "#eeeeee";
+            image.parentElement.setAttribute("aria-label", "Thumbnail unavailable");
         }
     });
 }
